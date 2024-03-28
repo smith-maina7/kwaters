@@ -29,6 +29,12 @@
           :class="{ active: route.path === '/contact' }"
           >Contact Us</router-link
         >
+        <router-link
+          to="/signin"
+          class="nav-link"
+          :class="{ active: route.path === '/contact' }"
+          >Sing In</router-link
+        >
       </div>
       <div class="mobile-menu-icon" @click="toggleMobileMenu">
         <span>&#9776;</span>
@@ -112,7 +118,7 @@ const route = useRoute();
   text-decoration: none;
   color: #fff;
   font-family: "Nunito", sans-serif;
-  transition: color 0.3s ease; /* Add a smooth transition effect on hover */
+  transition: color 0.5s ease; /* Add a smooth transition effect on hover */
 }
 
 .nav-link:hover {

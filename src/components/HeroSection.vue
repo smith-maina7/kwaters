@@ -22,6 +22,7 @@ export default {
   color: #fff;
   text-align: left;
   padding: 100px 20px; /* Adjust the padding based on your design */
+  height: 25vw;
 }
 
 .hero-content {
