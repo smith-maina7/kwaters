@@ -45,11 +45,12 @@ export default {
 .footer {
   background-color: #333;
   color: #fff;
-  padding: 30px 0;
+  padding: 20px 0; /* Adjusted padding */
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
+  margin-top: 10px;
 }
 
 .container {
@@ -82,7 +83,7 @@ export default {
 .social-media-icons {
   display: flex; /* Change to flex layout */
   align-items: center; /* Align items vertically */
-  margin-top: 10px; /* Add space between social media icons and navigation links */
+  margin-top: 5px; /* Adjusted margin top */
 }
 
 .social-media-icons a {

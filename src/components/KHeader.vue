@@ -32,8 +32,8 @@
         <router-link
           to="/signin"
           class="nav-link"
-          :class="{ active: route.path === '/contact' }"
-          >Sing In</router-link
+          :class="{ active: route.path === '/sign-in' }"
+          >Sign In</router-link
         >
       </div>
       <div class="mobile-menu-icon" @click="toggleMobileMenu">

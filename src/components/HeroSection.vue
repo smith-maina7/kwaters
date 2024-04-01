@@ -16,11 +16,11 @@ export default {
 
 <style scoped>
 .hero {
-  background-image: url("../assets/tap.jpg");
+  background-image: url("../assets/istockphoto-175426122-1024x1024.jpg");
   background-size: cover;
   background-position: center;
   color: #fff;
-  text-align: left;
+  text-align: right;
   padding: 100px 20px; /* Adjust the padding based on your design */
   height: 25vw;
 }
