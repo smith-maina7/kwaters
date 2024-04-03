@@ -76,7 +76,7 @@
           </div>
         </div>
 
-        <div class="testimonial-card">
+        <!-- <div class="testimonial-card">
           <div class="testimonial-content">
             <div class="testimonial-image">
               <img
@@ -93,7 +93,7 @@
               <p>- Ben Adams</p>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
@@ -109,10 +109,16 @@ onMounted(() => {
 });
 
 function moveCards() {
-  if (testimonialCards.value) {
-    const cards = testimonialCards.value.children;
-    const containerWidth = testimonialCards.value.offsetWidth;
+  const cards = testimonialCards.value.children;
+  const containerWidth = testimonialCards.value.offsetWidth;
 
+  // Set initial position of each card
+  for (let card of cards) {
+    card.style.left = "0";
+  }
+
+  // Wait for browser to apply initial position
+  setTimeout(() => {
     // Loop through each testimonial card and move it to the right
     for (let card of cards) {
       const currentPosition = parseFloat(getComputedStyle(card).left);
@@ -120,7 +126,7 @@ function moveCards() {
       card.style.transition = "left 1s";
       card.style.left = newPosition + "px";
     }
-  }
+  }, 100); // Delay to ensure initial position is applied
 }
 </script>
 
@@ -148,36 +154,46 @@ function moveCards() {
 }
 
 .testimonial-card {
-  width: 380px; /* Adjusted width */
-  height: auto; /* Adjusted height */
+  width: 380px;
+  height: auto;
   margin: 20px;
   background-color: #fff;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   overflow: hidden;
-  border: 2px solid #ccc; /* Add border around the card */
+  border: 2px solid #ccc;
 }
 
 .testimonial-content {
   display: flex;
-  flex-direction: column; /* Adjusted flex direction */
+  flex-direction: column;
 }
 
 .testimonial-message {
   flex: 1;
-  margin: 20px; /* Adjusted margin */
+  margin: 20px;
 }
 
 .testimonial-image {
-  width: 100%; /* Adjusted width */
-  height: 220px; /* Adjusted height */
+  width: 100%;
+  height: 220px;
   overflow: hidden;
-  border-bottom: 2px solid #ccc; /* Add border at the bottom of the image */
+  border-bottom: 2px solid #ccc;
 }
 
 .testimonial-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Define keyframe animation */
+@keyframes slideLeft {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 </style>
