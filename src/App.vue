@@ -8,4 +8,9 @@ import KHeader from "./components/KHeader.vue";
 import Footer from "./components/FooterSection.vue";
 </script>
 
-<style></style>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+body {
+  font-family: "Roboto", sans-serif;
+}
+</style>

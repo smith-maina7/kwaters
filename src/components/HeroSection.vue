@@ -1,8 +1,10 @@
 <template>
   <section class="hero">
     <div class="hero-content">
-      <h1 class="hero-title">Welcome to K Waters</h1>
-      <p class="hero-subtitle">Your Trusted Partner in Water Solutions</p>
+      <h1 class="hero-title fade-in">Welcome to K Waters</h1>
+      <p class="hero-subtitle fade-in">
+        Your Trusted Partner in Water Solutions
+      </p>
       <!-- You can add additional content or buttons here -->
     </div>
   </section>
@@ -30,12 +32,21 @@ export default {
   margin: 0 auto;
 }
 
-.hero-title {
-  font-size: 2.5em;
-  margin-bottom: 20px;
+.hero-title,
+.hero-subtitle {
+  opacity: 0; /* Start with opacity set to 0 */
 }
 
-.hero-subtitle {
-  font-size: 1.2em;
+.fade-in {
+  animation: fadeIn 1s ease forwards; /* Apply the fade-in animation */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Start from opacity 0 */
+  }
+  to {
+    opacity: 1; /* End with opacity 1 */
+  }
 }
 </style>
