@@ -23,7 +23,7 @@ export default {
   background-position: center;
   color: #fff;
   text-align: right;
-  padding: 100px 20px; /* Adjust the padding based on your design */
+  padding: 100px 20px;
   height: 25vw;
 }
 
