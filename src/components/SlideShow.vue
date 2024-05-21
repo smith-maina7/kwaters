@@ -2,7 +2,7 @@
   <div class="slides">
     <div
       class="slides-inner"
-      :style="{ transform: `translateX(-${currentIndex * 100}%)` }"
+      :style="{ transform: `translateX(-${currentIndex.value * 100}%)` }"
     >
       <div v-for="slide in slides" :key="slide.id" class="slide">
         <img :src="slide.src" alt="Slide" />
@@ -12,28 +12,35 @@
 </template>
 
 <script setup>
+import { ref, onMounted, nextTick } from "vue";
+
 const slides = [
   { src: require("../assets/Plant/Plant.jpg"), id: 1 },
   { src: require("../assets/Plant/plant2.jpg"), id: 2 },
   { src: require("../assets/Plant/plant3.jpg"), id: 3 },
 ];
 
-let currentIndex = 0;
+const currentIndex = ref(0);
 
 // Function to advance to the next slide
 const nextSlide = () => {
-  currentIndex = (currentIndex + 1) % slides.length;
+  currentIndex.value = (currentIndex.value + 1) % slides.length;
 };
 
 // Automatically advance to the next slide every 5 seconds
-setInterval(nextSlide, 5000);
+onMounted(() => {
+  nextTick(() => {
+    setInterval(nextSlide, 5000);
+  });
+});
 </script>
 
 <style scoped>
+/* Adjust the slides container to account for the navigation bar */
 .slides {
-  width: 100vw; /* Set the width to occupy the full viewport width */
-  height: 100vh; /* Set the height to occupy the full viewport height */
+  width: 99vw; /* Set the width to occupy the full viewport width */
   overflow: hidden; /* Hide overflow to prevent scrollbar */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .slides-inner {
@@ -48,6 +55,6 @@ setInterval(nextSlide, 5000);
 .slide img {
   width: 100%;
   height: 100%; /* Make the images occupy the full height of the slides */
-  object-fit: cover; /* Ensure the images cover the entire slide */
+  object-fit: contain; /* Ensure the images are fully visible within the slides */
 }
 </style>
